@@ -63,7 +63,7 @@ class Tabs extends Component {
                 {React.Children.map(this.props.children.filter(c=>c),(el)=>
                     <TouchableOpacity key={el.props.name+"touch"}
                        accessible={true}
-                       accessibilityLabel={(el.props.name || el.key) + "_tab_button" }
+                       accessibilityLabel={el.props.name || el.key}
                        testID={el.props.testID}
                        style={[styles.iconView, this.props.iconStyle, (el.props.name || el.key) == selected ? this.props.selectedIconStyle || el.props.selectedIconStyle || {} : {} ]}
                        onPress={()=>!self.props.locked && self.onSelect(el)}
