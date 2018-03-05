@@ -32,15 +32,11 @@ class Tabs extends Component {
 
   componentWillMount(){
     if (Platform.OS==='android') {
-      this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this.keyboardWillShow);
-      this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this.keyboardWillHide);
+      Keyboard.addListener('keyboardDidShow', this.keyboardWillShow);
+      Keyboard.addListener('keyboardDidHide', this.keyboardWillHide);
     }
   }
 
-  componentWillUnmount(){
-    this.keyboardDidShowListener.remove();
-    this.keyboardDidHideListener.remove();
-  }
 
   keyboardWillShow = (e) => {
     this.setState({ keyboardUp: true });
