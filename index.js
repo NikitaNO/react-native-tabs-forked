@@ -1,56 +1,6 @@
 'use strict';
 
 import React, {
-    Component
-} from 'react';
-
-import {
-    StyleSheet,
-    View,
-    Text,
-    TouchableOpacity,
-    Keyboard,
-    Platform,
-} from 'react-native';
-
-type State = {
-    keyboardUp: boolean,
-}
-
-class Tabs extends Component {
-    state: State = {};
-
-    onSelect(el){
-        if (el.props.onSelect) {
-            el.props.onSelect(el);
-        } else if (this.props.onSelect) {
-            this.props.onSelect(el);
-        }
-    }
-
-    componentWillMount(){
-        if (Platform.OS==='android') {
-            this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this.keyboardWillShow);
-            this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this.keyboardWillHide);
-        }
-    }
-
-    componentWillUnmount(){
-        this.keyboardDidShowListener.remove();
-        this.keyboardDidHideListener.remove();
-    }
-
-    keyboardWillShow = (e) => {
-        this.setState({ keyboardUp: true });
-    };
-
-    keyboardWillHide = (e) => {
-        this.setState({ keyboardUp: false });
-    };
-
-  'use strict';
-
-  import React, {
   Component
 } from 'react';
 
@@ -180,4 +130,3 @@ var styles = StyleSheet.create({
 });
 
 module.exports = Tabs;
-
